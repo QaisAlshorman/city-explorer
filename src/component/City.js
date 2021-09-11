@@ -23,11 +23,12 @@ class City extends React.Component {
 
     try {
       let searchQuery = event.target.searchQuery.value;
-      let locURL = `https://eu1.locationiq.com/v1/search.php?key=pk.30819d0d14daf4a98f432c25d296412a&q=${searchQuery}&format=json`;
+      let locURL = `https://eu1.locationiq.com/v1/search.php?key=pk.c039ec75ab242fefc9618a9987b59bcc&q=${searchQuery}&format=json`;
       let locResult = await axios.get(locURL);
-      let WeatherUrl = `https://weather-cityexplorer55.herokuapp.com/forcast?lat=${locResult.data[0].lat}&lon=${locResult.data[0].lon}`;
-      // http://localhost:3060/forcast?lat=${locResult.data[0].lat}&lon=${locResult.data[0].lon}
-      let movieUrl = `https://weather-cityexplorer55.herokuapp.com/movies?cityName=${searchQuery}`;
+      let WeatherUrl = `https://city-explore-ap.herokuapp.com/forcast?lat=${locResult.data[0].lat}&lon=${locResult.data[0].lon}`;
+      //  http://localhost:3060/forcast?lat=${locResult.data[0].lat}&lon=${locResult.data[0].lon}
+
+      let movieUrl = `https://city-explore-ap.herokuapp.com/movies?cityName=${searchQuery}`;
 
       let weatherObject = await axios.get(WeatherUrl);
       let moviesName =await axios.get(movieUrl);
@@ -73,15 +74,15 @@ class City extends React.Component {
           </Form.Group>
         </Form>
         
-        <div className="container-sec2">
-          <p>  {this.state.locData.display_name}</p>
-          <p>  {this.state.locData.lat} ,{this.state.locData.lon}</p>
+        <div className="container-sec2" style={{alignItems:"center"}}>
+          <Col > {this.state.locData.display_name}</Col>
+          <Col >  {this.state.locData.lat} ,{this.state.locData.lon}</Col>
           {this.state.displayErrMsg && this.state.errMsg}
           {this.state.displayMap && (
             <Image
-              src={`https://maps.locationiq.com/v3/staticmap?key=pk.30819d0d14daf4a98f432c25d296412a&center=${this.state.locData.lat},${this.state.locData.lon}&zoom=15&size=480x450&format=png&maptype=roadmap&markers=icon:small-red-cutout|${this.state.locData.lat},${this.state.locData.lon},&markers=icon:small-red-cutout|${this.state.locData.lat},${this.state.locData.lon}`}
+              src={`https://maps.locationiq.com/v3/staticmap?key=pk.c039ec75ab242fefc9618a9987b59bcc&center=${this.state.locData.lat},${this.state.locData.lon}&zoom=15&size=480x450&format=png&maptype=roadmap&markers=icon:small-red-cutout|${this.state.locData.lat},${this.state.locData.lon},&markers=icon:small-red-cutout|${this.state.locData.lat},${this.state.locData.lon}`}
               alt="map"
-              fluid
+             style={{alignItems:"center" , borderRadius:"30px"}}
               thumbnail
             />
           )}

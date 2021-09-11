@@ -1,23 +1,12 @@
 import React from 'react';
-import ListGroup from "react-bootstrap/ListGroup";
+import WeatherDay from "./WeatherDay";
  class Weather extends React.Component {
     render() {
         return(
-            <aside className="weather-list">
-                 <ListGroup id="weather-list">
-                 {this.props.seeWeathetState.map((item, indx)=>{
-                 return(
-                     <div key={indx}>
-                           <ListGroup.Item >
-                         {<p> wather for day {indx +1} : {item.description}</p>}
-                         {<p>date  : {item.date}</p>}
-                         </ListGroup.Item>
-                         </div>
-                 )
-                 }
-                 )}
-                 </ListGroup>
-            </aside>
+            <div className="weather-sec">
+        <WeatherDay 
+        descWeather={this.props.seeWeathetState}/>
+        </div>
         );
     }
 }
