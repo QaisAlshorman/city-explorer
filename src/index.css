@@ -11,3 +11,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.container-sec2{
+  text-align: center;
+}
+
+.container-sec1{
+  padding-left:30%;
+}
+.header-sec{
+  text-align: center;
+}
+.container-form{
+  text-align: center;
+}
+.weather-sec{
+  float: left;
+  width: 400px;
+}
+.weather-list{
+  float: left;
+  width: 400px;
+}
